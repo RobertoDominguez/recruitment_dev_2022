@@ -12,12 +12,17 @@ class StringValueController extends Controller
         $t = $request->t;
         $max = 0;
         $x = 0;
+        $words=[];
+
         for ($i = 1; $i <= strlen($t); $i = $i + 1) {
             for ($j = 0; $j <= strlen($t) - ($i); $j = $j + 1) {
                 $s = substr($t, $j, $i);
-                $x = $this->f($s, $t);
-                if ($max < $x*strlen($s)) {
-                    $max = $x*strlen($s);
+                if (!in_array($s,$words)){
+                    $x = $this->f($s, $t)*strlen($s);
+                    if ($max < $x) {
+                        $max = $x;
+                    }
+                    $words[]=$s;
                 }
             }
         }
