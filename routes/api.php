@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\QueensAttackAPIController;
+use App\Http\Controllers\StringValueController;
 use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/problem-1',[QueensAttackAPIController::class,'queensAttack']);
+
+Route::post('/problem-2',[StringValueController::class,'stringValue']);
